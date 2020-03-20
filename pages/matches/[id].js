@@ -25,7 +25,7 @@ matchdetails.getInitialProps = async function(ctx) {
     }
   };
   const res = await axios.get(
-    `http://cricket_tourn_backend.test/api/v1/matches/${id}`,
+    `https://cricket-league-tourn.herokuapp.com/api/v1/matches/${id}`,
     config
   );
 

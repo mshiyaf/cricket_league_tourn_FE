@@ -77,7 +77,7 @@ matches.getInitialProps = async function() {
     }
   };
   const res = await axios.get(
-    'http://cricket_tourn_backend.test/api/v1/matches',
+    'https://cricket-league-tourn.herokuapp.com/api/v1/matches',
     config
   );
 

@@ -22,7 +22,7 @@ const PlayerDetailsState = props => {
       }
     };
     const res = await axios.get(
-      `http://cricket_tourn_backend.test/api/v1/player/${player_id}`,
+      `https://cricket-league-tourn.herokuapp.com/api/v1/player/${player_id}`,
       config
     );
 
