@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Layout from '../layouts/main';
 import axios from 'axios';
 
-import TeamCard from '../components/Teams/teamCard';
+import TeamCard from '../components/Teams/TeamCard';
 
 const teams = ({ teams }) => {
   return (
