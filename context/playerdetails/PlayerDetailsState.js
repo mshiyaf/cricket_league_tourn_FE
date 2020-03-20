@@ -1,19 +1,19 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import TeamDetailsContext from './teamDetailsContext';
-import teamDetailsReducer from './teamDetailsReducer';
-import { TEAM_DETAILS, SET_TEAM_DETAILS_LOADING } from '../types';
+import PlayerDetailsContext from './playerDetailsContext';
+import playerDetailsReducer from './playerDetailsReducer';
+import { PLAYER_DETAILS, SET_PLAYER_DETAILS_LOADING } from '../types';
 
-const TeamDetailsState = props => {
+const PlayerDetailsState = props => {
   const initialState = {
-    teamDetails: {},
-    loadingDetails: false
+    playerDetails: {},
+    loadingPlayerDetails: false
   };
-  const [state, dispatch] = useReducer(teamDetailsReducer, initialState);
+  const [state, dispatch] = useReducer(playerDetailsReducer, initialState);
 
   //
-  const getTeamDetails = async teamName => {
-    setLoadingDetails(true);
+  const getPlayerDetails = async player_id => {
+    setLoadingPlayerDetails(true);
     let config = {
       headers: {
         Authorization:
@@ -22,30 +22,32 @@ const TeamDetailsState = props => {
       }
     };
     const res = await axios.get(
-      `http://cricket_tourn_backend.test/api/v1/team/${teamName}`,
+      `http://cricket_tourn_backend.test/api/v1/player/${player_id}`,
       config
     );
 
+    console.log(res.data);
+
     dispatch({
-      type: TEAM_DETAILS,
+      type: PLAYER_DETAILS,
       payload: res.data
     });
   };
 
-  const setLoadingDetails = value => {
-    dispatch({ type: SET_TEAM_DETAILS_LOADING, payload: value });
+  const setLoadingPlayerDetails = value => {
+    dispatch({ type: SET_PLAYER_DETAILS_LOADING, payload: value });
   };
 
   return (
-    <TeamDetailsContext.Provider
+    <PlayerDetailsContext.Provider
       value={{
-        teamDetails: state.teamDetails,
-        loadingDetails: state.loadingDetails,
-        getTeamDetails
+        playerDetails: state.playerDetails,
+        loadingPlayerDetails: state.loadingPlayerDetails,
+        getPlayerDetails
       }}
     >
       {props.children}
-    </TeamDetailsContext.Provider>
+    </PlayerDetailsContext.Provider>
   );
 };
-export default TeamDetailsState;
+export default PlayerDetailsState;

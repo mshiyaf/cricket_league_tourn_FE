@@ -3,27 +3,51 @@ import Link from 'next/link';
 
 const Header = props => {
   const [navActive, setNavActive] = useState(props.navActive);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const onClickMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+  const onClickMobileMenuClose = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <Fragment>
       {/* <!-- Offcanvas Menu Section Begin --> */}
-      <div className='offcanvas-menu-overlay'></div>
-      <div className='offcanvas-menu-wrapper'>
-        <div className='canvas-close'>
+      <div
+        className={`offcanvas-menu-overlay ${mobileMenuOpen ? 'active' : ''}`}
+      ></div>
+      <div
+        className={`offcanvas-menu-wrapper ${
+          mobileMenuOpen ? 'show-offcanvas-menu-wrapper' : ''
+        } `}
+      >
+        <div className='canvas-close' onClick={onClickMobileMenuClose}>
           <i className='fa fa-close'></i>
-        </div>
-        <div className='search-btn search-switch'>
-          <i className='fa fa-search'></i>
         </div>
         <div className='header__top--canvas'>
           <div className='ht-info'>
             <ul>
-              <li>20:00 - May 19, 2019</li>
               <li>
-                <a href='#'>Sign in</a>
+                <Link href='/'>
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <a href='#'>Contact</a>
+                <Link href='/teams'>
+                  <a>Teams</a>
+                </Link>
+              </li>
+              <li>
+                <Link href='/matches'>
+                  <a>Matches</a>
+                </Link>
+              </li>
+              <li>
+                <Link href='/table'>
+                  <a>Points Table</a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,43 +69,6 @@ const Header = props => {
             </a>
           </div>
         </div>
-        <ul className='main-menu mobile-menu'>
-          <li className='active'>
-            <a href='./index.html'>Home</a>
-          </li>
-          <li>
-            <a href='./club.html'>Club</a>
-          </li>
-          <li>
-            <a href='./schedule.html'>Schedule</a>
-          </li>
-          <li>
-            <a href='./result.html'>Results</a>
-          </li>
-          <li>
-            <a href='#'>Sport</a>
-          </li>
-          <li>
-            <a href='#'>Pages</a>
-            <ul className='dropdown'>
-              <li>
-                <a href='./blog.html'>Blog</a>
-              </li>
-              <li>
-                <a href='./blog-details.html'>Blog Details</a>
-              </li>
-              <li>
-                <a href='#'>Schedule</a>
-              </li>
-              <li>
-                <a href='#'>Results</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href='./contact.html'>Contact Us</a>
-          </li>
-        </ul>
         <div id='mobile-menu-wrap'></div>
       </div>
       {/* <!-- Offcanvas Menu Section End --> */}
@@ -92,9 +79,11 @@ const Header = props => {
             <div className='row'>
               <div className='col-lg-2'>
                 <div className='logo'>
-                  <a href='./index.html'>
-                    <img src='../img/logo.png' alt='' />
-                  </a>
+                  <Link href='/'>
+                    <a>
+                      <img src='../img/logo.png' alt='' />
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className='col-lg-10'>
@@ -135,7 +124,7 @@ const Header = props => {
                 </div>
               </div>
             </div>
-            <div className='canvas-open'>
+            <div className='canvas-open' onClick={onClickMobileMenu}>
               <i className='fa fa-bars'></i>
             </div>
           </div>

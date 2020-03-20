@@ -15,7 +15,7 @@ const index = () => {
                   <div className='row'>
                     <div className='col-lg-12'>
                       <div className='hs-text'>
-                        <h2>Cricket League 2020</h2>
+                        <h2>CRICKET LEAGUE 2020</h2>
                         <Link href='/matches'>
                           <a className='primary-btn-index'>See Matches</a>
                         </Link>

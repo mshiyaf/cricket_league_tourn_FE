@@ -1,18 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
     <React.Fragment>
       {/* <!-- Footer Section Begin --> */}
-      <footer className='footer-section set-bg' data-setbg='img/footer-bg.jpg'>
+      <footer className='footer-section set-bg-footer'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-3 col-md-6'>
               <div className='fs-logo'>
                 <div className='logo'>
-                  <a href='./index.html'>
-                    <img src='../img/logo.png' alt='' />
-                  </a>
+                  <Link href='/'>
+                    <a>
+                      <img src='../img/logo.png' alt='' />
+                    </a>
+                  </Link>
                 </div>
                 <ul>
                   <li>
@@ -50,30 +53,27 @@ const Footer = () => {
                 <h4>Top Teams</h4>
                 <ul className='fw-links'>
                   <li>
-                    <a href='#'>India</a>
+                    <Link href='/teams/India'>
+                      <a>India</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href='#'>Sri Lanka</a>
+                    <a href='/teams/Pakistan'>Pakistan</a>
+                  </li>
+
+                  <li>
+                    <a href='/teams/Australia'>Australia</a>
                   </li>
                   <li>
-                    <a href='#'>Pakistan</a>
-                  </li>
-                  <li>
-                    <a href='#'>Australia</a>
-                  </li>
-                  <li>
-                    <a href='#'>Zimbawe</a>
+                    <a href='/teams/Zimbawe'>Zimbawe</a>
                   </li>
                 </ul>
                 <ul className='fw-links'>
                   <li>
-                    <a href='#'>England</a>
+                    <a href='/teams/Netherlands'>Netherlands</a>
                   </li>
                   <li>
-                    <a href='#'>Netherlands</a>
-                  </li>
-                  <li>
-                    <a href='#'>Hungary</a>
+                    <a href='/teams/Hungary'>Hungary</a>
                   </li>
                   <li>
                     <a href='#'>South Africa</a>

@@ -5,17 +5,16 @@ import TeamDetailsContext from '../../context/teamdetails/teamDetailsContext';
 
 const TeamCard = ({ team }) => {
   const teamDetailsContext = useContext(TeamDetailsContext);
-  //   const router = useRouter();
 
   const onClickTeam = team_name => {
     console.log(team_name);
     if (team_name) {
       teamDetailsContext.getTeamDetails(team_name);
     }
-    // teamDetailsContext.getTeamDetails(team_name);
 
-    console.log(teamDetailsContext.teamDetails);
-    Router.push('/teamdetails', '/teamdetails/' + team_name);
+    Router.push('/teamdetails', '/teams/' + team_name).then(() =>
+      window.scrollTo(0, 0)
+    );
   };
 
   return (

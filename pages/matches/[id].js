@@ -1,29 +1,22 @@
-import React, { useContext, useEffect } from 'react';
-import Layout from '../layouts/main';
 import axios from 'axios';
+import Layout from '../../layouts/main';
 
-import TeamCard from '../components/Teams/teamCard';
+import MatchDetails from '../../components/Match/MatchDetails';
 
-const teams = ({ teams }) => {
+const matchdetails = ({ matchDetails }) => {
   return (
-    <Layout navActive={2}>
+    <Layout>
       <div className='page_banner'>
-        <h5>• LEAGUE TEAMS •</h5>
+        <h5>• MATCH DETAILS •</h5>
       </div>
-      <div className='container'>
-        <div className='row'>
-          {/* <!-- Team member --> */}
-          {teams.map(each => (
-            <TeamCard team={each} key={each.id} />
-          ))}
-          {/* <!-- ./Team member --> */}
-        </div>
-      </div>
+      <MatchDetails matchDetails={matchDetails[0]} />
     </Layout>
   );
 };
 
-teams.getInitialProps = async function() {
+matchdetails.getInitialProps = async function(ctx) {
+  const id = ctx.query.id;
+  console.log(id);
   let config = {
     headers: {
       Authorization:
@@ -32,13 +25,11 @@ teams.getInitialProps = async function() {
     }
   };
   const res = await axios.get(
-    'http://cricket_tourn_backend.test/api/v1/teams',
+    `http://cricket_tourn_backend.test/api/v1/matches/${id}`,
     config
   );
 
-  return {
-    teams: res.data
-  };
+  return { matchDetails: res.data };
 };
 
-export default teams;
+export default matchdetails;
