@@ -31,17 +31,6 @@ const main = ({ children, navActive }) => {
           href='../css/font-awesome.min.css'
           type='text/css'
         />
-        <link
-          rel='stylesheet'
-          href='../css/owl.carousel.min.css'
-          type='text/css'
-        />
-        <link
-          rel='stylesheet'
-          href='../css/magnific-popup.css'
-          type='text/css'
-        />
-        <link rel='stylesheet' href='../css/slicknav.min.css' type='text/css' />
         <link rel='stylesheet' href='../css/style.css' type='text/css' />
       </Head>
       <Header navActive={navActive} />

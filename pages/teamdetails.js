@@ -14,8 +14,14 @@ const teamdetails = () => {
       </div>
       {loadingDetails ? (
         <div>Loading...</div>
+      ) : teamDetails ? (
+        teamDetails.length ? (
+          <TeamDetailsSection teamDetails={teamDetails} />
+        ) : (
+          <div>Loading...</div>
+        )
       ) : (
-        <TeamDetailsSection teamDetails={teamDetails} />
+        <div>Loading...</div>
       )}
     </Layout>
   );

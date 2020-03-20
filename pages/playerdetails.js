@@ -14,8 +14,14 @@ const playerdetails = () => {
       </div>
       {loadingPlayerDetails ? (
         <div>Loading...</div>
+      ) : playerDetails ? (
+        playerDetails.length ? (
+          <PlayerDetails playerDetails={playerDetails} />
+        ) : (
+          <div>Loading...</div>
+        )
       ) : (
-        <PlayerDetails playerDetails={playerDetails} />
+        <div>Loading...</div>
       )}
     </Layout>
   );
