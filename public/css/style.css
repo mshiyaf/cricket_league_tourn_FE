@@ -1848,6 +1848,10 @@ ol {
 /* Small Mobile: 320px */
 
 @media only screen and (max-width: 479px) {
+  .primary-btn-index {
+    width: 200px;
+    margin: 12px;
+  }
   .club-content .cc-text .ct-widget ul li {
     width: 100%;
   }
